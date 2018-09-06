@@ -31,9 +31,7 @@ const cart = (state = defaultObject, action) => {
 
 
     } else if (action.type === 'EMPTY_CART') {
-        // CheckoutPage logic here
-
-
+        return defaultObject;
     }
     return state;
 }

@@ -22,7 +22,7 @@ class CheckoutPage extends Component {
                 <div>
                     {/* <CheckoutHeader /> */}
                     <CheckoutTable />
-                    {/* <CheckoutButton /> */}
+                    <CheckoutButton />
                 </div>
             </div>
         );
