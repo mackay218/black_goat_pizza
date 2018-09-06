@@ -20,9 +20,9 @@ class CheckoutPage extends Component {
         return (
             <div>
                 <div>
-                    <CheckoutHeader />
+                    {/* <CheckoutHeader /> */}
                     <CheckoutTable />
-                    <CheckoutButton />
+                    {/* <CheckoutButton /> */}
                 </div>
             </div>
         );
@@ -33,4 +33,4 @@ const mapReduxStateToProps = (reduxState) => ({
   reduxState
 });
 
-export default CheckoutPage;
+export default connect(mapReduxStateToProps)(CheckoutPage);
