@@ -10,13 +10,20 @@ class CheckoutPage extends Component {
         }
     }
 
-    // handleChange = (event) => 
-    render () {
+    handleChange = (event) => {
+    }
+
+    render() {
         return (
             <div>
-                
+                <h1>Hi!</h1>
             </div>
         );
     }
 }
 
+const mapReduxStateToProps = (reduxState) => ({
+  reduxState
+});
+
+export default CheckoutPage;
