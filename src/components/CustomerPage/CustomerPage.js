@@ -21,29 +21,32 @@ class CustomerPage extends Component {
         
         this.state = customerFormObject;
 
-        this.handleChange = this.handleOptionChange.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        
     }
 
     handleOptionChange = (event) => {
-        //console.log(event.target.value);
+        console.log('in handleOptionChange');
         this.setState({
+            ...this.state,
             pickOrDeliv : event.target.value
         });
+
+        console.log(this.state);
     }
 
-    handleChange = (event) =>{
+     handleChange = (event) =>{
 
-        //console.log(event.targe.value);
+         console.log(event.target.value);
 
-        this.setState({
-            customer:{
-                [event.target.name]: event.target.value,
+         this.setState({
+             customer:{
+                 ...this.state.customer, 
+                 [event.target.name]: event.target.value,
 
-            }
+             }
                 
             
-        });
+         });
     }
 
     handleSubmit = (event) => {
