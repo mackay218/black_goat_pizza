@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import CheckoutTable from './CheckoutTable/CheckoutTable.js';
+import CheckoutHeader from './CheckoutHeader/CheckoutHeader.js';
+import CheckoutButton from './CheckoutButton/CheckoutButton.js';
 
 class CheckoutPage extends Component {
     constructor(props) {
@@ -16,7 +19,11 @@ class CheckoutPage extends Component {
     render() {
         return (
             <div>
-                <h1>Hi!</h1>
+                <div>
+                    <CheckoutHeader />
+                    <CheckoutTable />
+                    <CheckoutButton />
+                </div>
             </div>
         );
     }
