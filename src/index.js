@@ -7,10 +7,24 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 
-const cart = (state = {}, action) => {
-    if (action.type === 'ADD_PIZZAS') {
-        // SelectPage logic here
+const defaultObject = {
+    customer: {
+        name: '',
+        street_address: '',
+        city: '',
+        zip: ''
+    },
+    pizzas: [],
+    order_total: 0,
+    type: ''
+}
 
+const cart = (state = defaultObject, action) => {
+    if (action.type === 'ADD_PIZZA') {
+        const newInfo = action.payload;
+        return {...state, pizzas: newInfo.pizzas, order_total: newInfo.order_total}
+    } else if (action.type === 'REMOVE_PIZZA') {
+        
 
     } else if (action.type === 'ADD_CUSTOMER') {
         // CustomerPage logic here

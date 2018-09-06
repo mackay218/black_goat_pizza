@@ -22,22 +22,25 @@ class PizzaList extends Component {
             url: '/api/pizza'
         }).then((response) => {
             console.log('back from server with: ', response.data);
-            this.state.pizzas = response.data;
+            this.setState({
+                pizzas: response.data
+            });
         }).catch((error) => {
             console.log('error: ', error);
             alert('there was an error getting the pizzas');
         })
+
+        console.log(this.state.pizzas);
     }
 
     render() {
         return(
             <ul>
-
-                {/* {this.state.pizzas.map((pizza, i) => {
+                {this.state.pizzas.map((pizza, i) => {
                     return(
                         <PizzaListItem key={pizza._id} pizza={pizza} />
                     );
-                })} */}
+                })}
             </ul>
         );
     }
