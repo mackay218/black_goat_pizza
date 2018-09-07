@@ -17,6 +17,7 @@ class CheckoutButton extends Component {
                 const action = {type: 'EMPTY_CART'}
                 this.props.dispatch(action);
                 // this.props.history.push('/');
+                alert('Order complete. Enjoy your Black Goat Pizza!')
             }).catch((error) => {
                 console.log(error);
                 alert('Unable to POST to db.')
