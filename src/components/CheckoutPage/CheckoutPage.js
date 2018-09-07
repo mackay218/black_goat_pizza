@@ -22,7 +22,7 @@ class CheckoutPage extends Component {
                 <div>
                     <CheckoutHeader />
                     <CheckoutTable />
-                    <CheckoutButton />
+                    <CheckoutButton history={this.props.history}/>
                 </div>
             </div>
         );
