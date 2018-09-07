@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 import './SelectPage.css';
 
 class SelectPage extends Component {
+    handleNext = (event) => {
+        this.props.history.push('/customer');
+    }
+
     render() {
         return(
             <div className="selectPageContainer">
