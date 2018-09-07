@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import '../SelectPage.css';
 
 class PizzaListItem extends Component {
     constructor(props) {
@@ -71,9 +72,9 @@ class PizzaListItem extends Component {
         let toDisplay;
 
         if (pizzaAdded) {
-            toDisplay = <button onClick={this.handleRemovePizza}>Remove</button>;
+            toDisplay = <button className="addBtn" onClick={this.handleRemovePizza}>Remove</button>;
         } else {
-            toDisplay = <button onClick={this.handleAddPizza}>Add</button>;
+            toDisplay = <button className="addBtn" onClick={this.handleAddPizza}>Add</button>;
         }
         return (
             <li>
