@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 const customerFormObject = {
-    name: '',
-    address: '',
-    city: '',
-    zip: '',
+    customer: {
+        name: '',
+        street_address: '',
+        city: '',
+        zip: '',
+    },
     pickOrDeliv: 'pickup',
 };//end customerFormObject
 
@@ -19,29 +21,45 @@ class CustomerPage extends Component {
         
         this.state = customerFormObject;
 
-        this.handleChange = this.handleOptionChange.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        
     }
-
-    // getInitialState(){
-    //     return (
-    //         pickOrDeliv: 'pickup'
-    //     );
-    // }
 
     handleOptionChange = (event) => {
+        console.log('in handleOptionChange');
         this.setState({
+            ...this.state,
             pickOrDeliv : event.target.value
         });
+
+        console.log(this.state);
     }
 
-    handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value,
-        });
+     handleChange = (event) =>{
+
+         console.log(event.target.value);
+
+         this.setState({
+             customer:{
+                 ...this.state.customer, 
+                 [event.target.name]: event.target.value,
+             }
+         });
+         
     }
 
+    handleSubmit = (event) => {
+        console.log(this.state);
+        event.preventDefault();
 
+        const action = { type: 'ADD_CUSTOMER', payload: this.state}
+        this.props.dispatch(action);
+
+        this.clearFields();
+    }
+
+    clearFields(){
+        this.setState(customerFormObject);
+    }
 
     render() {
 
@@ -58,7 +76,8 @@ class CustomerPage extends Component {
                         </div>
                         <div className="formSection">
                             <label htmlFor="#addressInput">Address</label>
-                            <input onChange={this.handleChange} placeholder="Andy's Room" id="addressInput" name="address" />
+                            <input onChange={this.handleChange} placeholder="Andy's Room" id="addressInput" 
+                                name="street_address" />
                         </div>
                         <div className="formSection">
                             <label htmlFor="#cityInput">City</label>
@@ -78,9 +97,7 @@ class CustomerPage extends Component {
                             <input type="submit" value="submit" />
                         </div>
                     </form>
-                
                 </div>
-
             </div>
         );
     }
