@@ -76,26 +76,26 @@ class CustomerPage extends Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="formSection">
                             <label htmlFor="#nameInput">Name</label>
-                            <input onChange={this.handleChange} placeholder="Buzz Lightyear" id="nameInput" name="name" />
+                            <input onChange={this.handleChange} placeholder="Buzz Lightyear" id="nameInput" name="name" required/>
                         </div>
                         <div className="formSection">
                             <label htmlFor="#addressInput">Address</label>
                             <input onChange={this.handleChange} placeholder="Andy's Room" id="addressInput" 
-                                name="street_address" />
+                                name="street_address" required/>
                         </div>
                         <div className="formSection">
                             <label htmlFor="#cityInput">City</label>
-                            <input onChange={this.handleChange} placeholder="pixar city" id="cityInput"  name="city" />
+                            <input onChange={this.handleChange} placeholder="pixar city" id="cityInput"  name="city" required/>
                         </div>
                         <div className="formSection">
                             <label htmlFor="#zipInput">Zip Code</label>
-                            <input onChange={this.handleChange} placeholder="55555" id="zipInput" name="zip" />
+                            <input type="number" step="1" onChange={this.handleChange} placeholder="55555" id="zipInput" name="zip" required/>
                         </div>
                         <div className="formSection">
                             <label htmlFor="#pickBtn">Pickup</label>
-                            <input onChange={this.handleOptionChange} id="pickBtn" type="radio" value="pickup" name="pickOrDeliv" checked={this.state.pickOrDeliv === 'pickup'}/>
+                            <input onChange={this.handleOptionChange} id="pickBtn" type="radio" value="pickup" name="pickOrDeliv" checked={this.state.pickOrDeliv === 'pickup'} required/>
                             <label htmlFor="#delvBtn">Delivery</label>    
-                            <input onChange={this.handleOptionChange} id="delvBtn" type="radio" value="delivery" name="pickOrDeliv" checked={this.state.pickOrDeliv === 'delivery'}/>
+                            <input onChange={this.handleOptionChange} id="delvBtn" type="radio" value="delivery" name="pickOrDeliv" checked={this.state.pickOrDeliv === 'delivery'} required/>
                         </div>
                         <div className="submitSection">
                             <button type="submit">Next</button>
