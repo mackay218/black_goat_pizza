@@ -25,11 +25,6 @@ class CheckoutButton extends Component {
             
     }
 
-    // redirectToHome(){
-    //     console.log(this.props.history);
-    //     this.props.history.push('/select');
-    // }
-
     render() {
         return (
             <div>
