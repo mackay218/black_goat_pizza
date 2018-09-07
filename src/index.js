@@ -20,21 +20,16 @@ const defaultObject = {
 }
 
 const cart = (state = defaultObject, action) => {
-    if (action.type === 'ADD_PIZZA') {
+    if (action.type === 'UPDATE_PIZZA') {
         const newInfo = action.payload;
         return {...state, pizzas: newInfo.pizzas, order_total: newInfo.order_total}
-    } else if (action.type === 'REMOVE_PIZZA') {
-        
-
     } else if (action.type === 'ADD_CUSTOMER') {
         // CustomerPage logic here
         const newInfo = action.payload;
         return {...state, customer: newInfo.customer, type: newInfo.pickOrDeliv}
 
     } else if (action.type === 'EMPTY_CART') {
-        // CheckoutPage logic here
-
-
+        return defaultObject;
     }
     return state;
 }

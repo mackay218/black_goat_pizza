@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class PizzaListItem extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             pizzaAdded: false,
@@ -15,12 +15,13 @@ class PizzaListItem extends Component {
         })
 
         let pizzaToAdd = {
+            _id: this.props.pizza._id,
             name: this.props.pizza.name,
             description: this.props.pizza.description,
             cost: this.props.pizza.cost
         }
 
-        let total = this.props.reduxState.cart.order_total + this.props.pizza.cost;
+        let total = Math.floor((this.props.reduxState.cart.order_total + this.props.pizza.cost) * 100) / 100;
 
         const order = {
             pizzas: [...this.props.reduxState.cart.pizzas, pizzaToAdd],
@@ -28,7 +29,7 @@ class PizzaListItem extends Component {
         }
 
         const action = {
-            type: 'ADD_PIZZA',
+            type: 'UPDATE_PIZZA',
             payload: order,
         }
 
@@ -39,9 +40,33 @@ class PizzaListItem extends Component {
         this.setState({
             pizzaAdded: false,
         })
+
+        let pizzaToRemoveId = this.props.pizza._id;
+
+        console.log(pizzaToRemoveId);
+        console.log(this.props.reduxState.cart.pizzas);
+
+        let total = Math.floor((this.props.reduxState.cart.order_total - this.props.pizza.cost) * 100) / 100;
+
+        const matchPizza = pizza => pizza._id !== pizzaToRemoveId;
+        let newPizzaList = this.props.reduxState.cart.pizzas.filter(matchPizza);
+
+        console.log(newPizzaList);
+
+        const order = {
+            pizzas: newPizzaList,
+            order_total: total
+        }
+
+        const action = {
+            type: 'UPDATE_PIZZA',
+            payload: order,
+        }
+
+        this.props.dispatch(action)
     }
 
-    render(){
+    render() {
         const pizzaAdded = this.state.pizzaAdded;
         let toDisplay;
 
@@ -50,7 +75,7 @@ class PizzaListItem extends Component {
         } else {
             toDisplay = <button onClick={this.handleAddPizza}>Add</button>;
         }
-        return(
+        return (
             <li>
                 <div>
                     <img src={this.props.pizza.image_path} />
