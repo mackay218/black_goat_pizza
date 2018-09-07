@@ -12,7 +12,7 @@ const defaultObject = {
         name: '',
         street_address: '',
         city: '',
-        zip: ''
+        zip: 0
     },
     pizzas: [],
     order_total: 0,
