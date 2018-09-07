@@ -42,11 +42,9 @@ class CustomerPage extends Component {
              customer:{
                  ...this.state.customer, 
                  [event.target.name]: event.target.value,
-
              }
-                
-            
          });
+         
     }
 
     handleSubmit = (event) => {
