@@ -48,10 +48,10 @@ class AdminPage extends Component {
                         {this.state.orders.map((order, i) => {
                             return (
                                 <tr>
-                                    <td>{order.name}</td>
+                                    <td>{order.customer.name}</td>
                                     <td>{order.time}</td>
                                     <td>{order.type}</td>
-                                    <td>{order.cost}</td>
+                                    <td>{order.order_total}</td>
                                 </tr>
                             )
                         })}
