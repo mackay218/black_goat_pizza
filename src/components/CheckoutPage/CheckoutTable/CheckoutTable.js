@@ -6,23 +6,25 @@ class CheckoutTable extends Component {
 
     render() {
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody >
-                    {this.props.reduxState.cart.pizzas.map((nameOfPizza) => {
-
-                        return (
-                            <CheckoutItem nameOfPizza={nameOfPizza} />
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        {this.props.reduxState.cart.pizzas.map((nameOfPizza) => {
+                            return (
+                                <CheckoutItem nameOfPizza={nameOfPizza} />
                             );
                         }
-                    )}
-                </tbody>
-            </table>
+                        )}
+                    </tbody>
+                </table>
+                <h1>{this.props.reduxState.cart.order_total}</h1>
+            </div>
         );
     }
 }

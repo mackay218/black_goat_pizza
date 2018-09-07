@@ -10,13 +10,14 @@ class CheckoutButton extends Component {
         console.log();
         axios({
             method: 'POST',
-            url: '/',
+            url: '/api/order',
             data: this.props.reduxState.cart
         }).then((response) => {
                 console.log('Back from POST: ', response.data);
                 const action = {type: 'EMPTY_CART'}
                 this.props.dispatch(action);
-                this.props.history.push('/');
+                // this.props.history.push('/');
+                alert('Order complete. Enjoy your Black Goat Pizza!')
             }).catch((error) => {
                 console.log(error);
                 alert('Unable to POST to db.')
