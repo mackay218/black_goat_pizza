@@ -20,7 +20,7 @@ class CheckoutPage extends Component {
         return (
             <div>
                 <div>
-                    {/* <CheckoutHeader /> */}
+                    <CheckoutHeader />
                     <CheckoutTable />
                     <CheckoutButton />
                 </div>
