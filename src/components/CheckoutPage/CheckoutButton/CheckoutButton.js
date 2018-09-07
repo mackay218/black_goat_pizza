@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 
 class CheckoutButton extends Component {
 
-    handleCheckout = () => {
+    handleCheckout = (event) => {
         console.log();
         axios({
             method: 'POST',
@@ -16,13 +16,19 @@ class CheckoutButton extends Component {
                 console.log('Back from POST: ', response.data);
                 const action = {type: 'EMPTY_CART'}
                 this.props.dispatch(action);
-                // this.props.history.push('/');
-                alert('Order complete. Enjoy your Black Goat Pizza!')
+                alert('Order complete. Enjoy your Black Goat Pizza!');
+                this.props.history.push('/select');
             }).catch((error) => {
                 console.log(error);
                 alert('Unable to POST to db.')
             })
+            
     }
+
+    // redirectToHome(){
+    //     console.log(this.props.history);
+    //     this.props.history.push('/select');
+    // }
 
     render() {
         return (
