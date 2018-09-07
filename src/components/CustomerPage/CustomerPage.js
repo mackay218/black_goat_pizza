@@ -53,8 +53,12 @@ class CustomerPage extends Component {
 
         const action = { type: 'ADD_CUSTOMER', payload: this.state}
         this.props.dispatch(action);
+        
+        this.props.history.push('checkout');
 
         this.clearFields();
+
+        
     }
 
     clearFields(){
@@ -94,7 +98,7 @@ class CustomerPage extends Component {
                             <input onChange={this.handleOptionChange} id="delvBtn" type="radio" value="delivery" name="pickOrDeliv" checked={this.state.pickOrDeliv === 'delivery'}/>
                         </div>
                         <div className="submitSection">
-                            <input type="submit" value="submit" />
+                            <button type="submit">Next</button>
                         </div>
                     </form>
                 </div>
