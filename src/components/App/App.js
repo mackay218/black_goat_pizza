@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './App.css';
+import Header from '../Header/Header.js';
 import SelectPage from '../SelectPage/SelectPage.js';
 import CustomerPage from '../CustomerPage/CustomerPage.js';
 import CheckoutPage from '../CheckoutPage/CheckoutPage.js';
@@ -12,9 +13,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <h1 className="App-title">Prime Pizza</h1>
-          </header>
+          <Header/>
           <Route exact path="/" component={SelectPage} />
           <Route path="/customer" component={CustomerPage} />
           <Route path="/checkout" component={CheckoutPage} />
