@@ -14,7 +14,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header/>
-          <Route path="/select" component={SelectPage} />
+          <Route exact path="/" component={SelectPage} />
           <Route path="/customer" component={CustomerPage} />
           <Route path="/checkout" component={CheckoutPage} />
           <Route path="/admin" component={AdminPage} />
