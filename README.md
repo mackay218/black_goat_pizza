@@ -1,6 +1,6 @@
 # Black Goat Pizza
 
-An application that simulateds a pizza parlor's online ordering and admin view.
+An application that simulates a pizza parlor's online ordering and admin view.
 
 ## Built With
 
